@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout";
 import Home from "../pages/home";
 import Products from "../pages/products";
 import ProductDetails from "../pages/products/product-details";
+import Login from "../pages/authentication/Login";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/manage",
-    element: <h1>Hello</h1>,
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
