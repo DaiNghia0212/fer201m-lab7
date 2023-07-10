@@ -1,27 +1,25 @@
 import { ReactNode } from "react";
-import { Button, useTheme } from "@mui/material";
+import { Button, ButtonProps } from "@mui/material";
 
 type Props = {
   children: ReactNode;
+  color?: ButtonProps["color"];
   onClick?: () => void;
+  variant?: ButtonProps["variant"];
+  style?: object;
 };
 
-const CustomButton = ({ children, onClick }: Props) => {
-  const theme = useTheme();
+const CustomButton = ({ children, variant, color, onClick, style }: Props) => {
   return (
     <Button
       onClick={onClick}
       sx={{
         width: "150px",
-        height: "50px",
-        ...(theme.palette.mode === "dark" && {
-          backgroundColor: "#121212",
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))",
-          color: "white",
-        }),
+        height: "50px"
       }}
-      variant="contained"
+      style={style}
+      variant={variant}
+      color={color}
     >
       {children}
     </Button>

@@ -24,13 +24,15 @@ import { Link } from "react-router-dom";
 import ColorMode from "./ColorMode";
 
 const pages = [
+  { name: "Home", href: "/" },
   { name: "Products", href: "/products" },
-  { name: "Pricing", href: "" },
-  { name: "Blog", href: "" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+  // { name: "Blog", href: "" },
 ];
 const settings = [
   // { name: "Profile", href: "" },
-  { name: "Dashboard", href: "" },
+  { name: "Dashboard", href: "/management" },
 ];
 
 const Header = () => {

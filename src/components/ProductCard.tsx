@@ -14,16 +14,14 @@ const ProductCard = ({ product, onClick }: Props) => {
   return (
     <Card sx={{ height: "100%" }} onClick={onClick}>
       <CardActionArea sx={{ height: "100%" }}>
-        <CardMedia
-          component="img"
-          image={product.image}
-          alt={product.name}
-        />
+        <CardMedia component="img" image={product.image} alt={product.name} />
         <CardContent>
           <Typography gutterBottom variant="h5">
             {product.name}
           </Typography>
-          <Typography variant="h6">{product.price} ₫</Typography>
+          <Typography variant="h6">
+            {product.price.toLocaleString("vi-VN")} ₫
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>

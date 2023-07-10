@@ -2,14 +2,19 @@ import { Box, Typography } from "@mui/material";
 import { useGetManyProducts } from "../../../hooks/productsApi";
 import ProductCardsList from "../../../components/ProductCardsList";
 import { Product } from "../../../types";
+import { useEffect } from "react";
 
 type Props = {
   productId: string;
 };
 
 const OtherProducts = ({ productId }: Props) => {
-  const { data, loading, error } = useGetManyProducts();
+  const { data, loading, error, getData } = useGetManyProducts();
   const filteredProducts = data.filter((product) => product.id !== productId);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
 
   const otherProducts: Product[] = [];
   let count = 0;

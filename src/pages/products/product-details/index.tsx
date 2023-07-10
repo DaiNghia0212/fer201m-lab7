@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetOneProduct } from "../../../hooks/productsApi";
@@ -8,7 +9,11 @@ import OtherProducts from "./OtherProducts";
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data, loading, error } = useGetOneProduct(id as string);
+  const { data, loading, error, getData } = useGetOneProduct(id as string);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
 
   return (
     <Container maxWidth="lg">
@@ -23,9 +28,9 @@ const ProductDetails = () => {
                 <Typography gutterBottom variant="h4">
                   {data?.name}
                 </Typography>
-                <Typography variant="h5">{data?.price} ₫</Typography>
+                <Typography variant="h5">{data?.price.toLocaleString("vi-VN")} ₫</Typography>
               </Box>
-              <CustomButton onClick={() => navigate("/")}>
+              <CustomButton variant="contained" onClick={() => navigate("/")}>
                 Go to store
               </CustomButton>
             </Grid>
